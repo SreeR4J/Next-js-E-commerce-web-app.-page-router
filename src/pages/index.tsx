@@ -1,82 +1,275 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import React from "react";
+import Link from "next/link";
+import ProductCard from "../components/productCard";
+import { ProductServices } from "../services/product-service";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+interface HomeProps {
+  products: any[];
+}
 
-export default function Home() {
+export default function Home({ products }: HomeProps) {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              index.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <main className="bg-white">
+
+      {/* HERO SECTION */}
+      <section className="bg-blue-50">
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 items-center gap-10">
+
+          <div>
+            <p className="text-blue-600 font-semibold uppercase tracking-widest mb-4">
+              Welcome to Vaangikkoo
+            </p>
+
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+              Discover Your
+              <span className="text-blue-600"> Perfect </span>
+              Shopping Experience
+            </h1>
+
+            <p className="text-gray-600 text-lg mt-6 leading-relaxed">
+              Explore the latest products at amazing prices.
+              Find everything you need in one place.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mt-8">
+              <Link
+                href="/products"
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              >
+                Shop Now →
+              </Link>
+
+              <Link
+                href="/products"
+                className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-white transition"
+              >
+                Explore Products
+              </Link>
+            </div>
+
+            <div className="flex gap-8 mt-10">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">1000+</h3>
+                <p className="text-gray-500 text-sm">Happy Customers</p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">500+</h3>
+                <p className="text-gray-500 text-sm">Products</p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">24/7</h3>
+                <p className="text-gray-500 text-sm">Support</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=900"
+              alt="Online shopping"
+              className="w-full max-w-lg h-80 md:h-[450px] object-cover rounded-3xl shadow-xl"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
         </div>
-      </main>
-    </div>
+      </section>
+
+
+      {/* FEATURES SECTION */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+          {[
+            {
+              icon: "🚚",
+              title: "Free Delivery",
+              desc: "On selected orders",
+            },
+            {
+              icon: "🔒",
+              title: "Secure Payment",
+              desc: "Safe and secure checkout",
+            },
+            {
+              icon: "↩️",
+              title: "Easy Returns",
+              desc: "Hassle-free returns",
+            },
+            {
+              icon: "🎧",
+              title: "24/7 Support",
+              desc: "We're always here to help",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="border border-gray-200 rounded-xl p-5 text-center hover:shadow-lg transition"
+            >
+              <div className="text-4xl mb-3">{item.icon}</div>
+              <h3 className="font-bold text-gray-800">{item.title}</h3>
+              <p className="text-gray-500 text-sm mt-2">{item.desc}</p>
+            </div>
+          ))}
+
+        </div>
+      </section>
+
+
+      {/* CATEGORY SECTION */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-10">
+            <p className="text-blue-600 font-semibold">EXPLORE</p>
+            <h2 className="text-3xl font-bold mt-2 text-gray-900">
+              Shop By Category
+            </h2>
+            <p className="text-gray-500 mt-3">
+              Find products that match your style.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+            {[
+              {
+                name: "Beauty",
+                image:
+                  "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500",
+              },
+              {
+                name: "Electronics",
+                image:
+                  "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500",
+              },
+              {
+                name: "Fashion",
+                image:
+                  "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500",
+              },
+              {
+                name: "Accessories",
+                image:
+                  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+              },
+            ].map((category) => (
+              <Link
+                href="/products"
+                key={category.name}
+                className="group relative h-48 md:h-64 rounded-2xl overflow-hidden"
+              >
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                />
+
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <h3 className="text-white text-xl md:text-2xl font-bold">
+                    {category.name}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* FEATURED PRODUCTS */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+
+        <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
+          <div>
+            <p className="text-blue-600 font-semibold">OUR COLLECTION</p>
+            <h2 className="text-3xl font-bold text-gray-900 mt-2">
+              Featured Products
+            </h2>
+            <p className="text-gray-500 mt-2">
+              Discover our popular products.
+            </p>
+          </div>
+
+          <Link
+            href="/products"
+            className="text-blue-600 font-semibold hover:text-blue-800"
+          >
+            View All Products →
+          </Link>
+        </div>
+
+        {products.length === 0 ? (
+          <p className="text-center text-gray-500 py-10">
+            Products are currently unavailable.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.slice(0, 4).map((product: any) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </div>
+        )}
+
+      </section>
+
+
+      {/* PROMOTIONAL BANNER */}
+      <section className="max-w-7xl mx-auto px-6 pb-16">
+        <div className="bg-blue-600 rounded-3xl px-8 py-12 md:p-16 text-center text-white">
+
+          <p className="uppercase tracking-widest text-blue-100 font-semibold">
+            Special Shopping Experience
+          </p>
+
+          <h2 className="text-3xl md:text-5xl font-bold mt-4">
+            Upgrade Your Lifestyle Today!
+          </h2>
+
+          <p className="text-blue-100 mt-5 max-w-xl mx-auto">
+            Explore our collection and discover amazing products
+            for your everyday needs.
+          </p>
+
+          <Link
+            href="/products"
+            className="inline-block mt-8 bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
+          >
+            Start Shopping →
+          </Link>
+
+        </div>
+      </section>
+
+
+    </main>
   );
+}
+
+
+// Fetch products from DummyJSON API
+export async function getServerSideProps() {
+  try {
+    const products = await ProductServices.getProducts();
+
+    return {
+      props: {
+        products: products || [],
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching homepage products:", error);
+
+    return {
+      props: {
+        products: [],
+      },
+    };
+  }
 }
