@@ -28,7 +28,7 @@ function Nav() {
             onClick={closeMenu}
             className="shrink-0 text-2xl font-extrabold tracking-tight text-gray-900 no-underline sm:text-3xl"
           >
-            Vaangi<span className="text-blue-600">kkoo</span>
+            Vaangi<span className="text-blue-600">kkoo - v2</span>
           </Link>
 
           {/* SEARCH BAR */}
