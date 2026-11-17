@@ -41,10 +41,10 @@ export default function Home({ products }: HomeProps) {
               </Link>
 
               <Link
-                href="/products"
+                href="#featuredproducts"
                 className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-white transition"
               >
-                Explore Products
+                Featured Products
               </Link>
             </div>
 
@@ -181,7 +181,7 @@ export default function Home({ products }: HomeProps) {
 
 
       {/* FEATURED PRODUCTS */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16" id="featuredproducts">
 
         <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
           <div>
