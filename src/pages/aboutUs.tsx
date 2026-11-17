@@ -1,10 +1,11 @@
 
 import React from 'react'
 
-function aboutUs() {
+function AboutUs() {
   return (
     <div className="min-h-screen bg-gray-50">
 
+      {/* Hero Section */}
       <div className="bg-blue-600 text-white py-20 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-5">
           About <span className="text-yellow-300">Vaangikkoo</span>
@@ -17,6 +18,7 @@ function aboutUs() {
 
       <div className="max-w-6xl mx-auto px-6 py-16">
 
+        {/* Who We Are */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
 
           <div>
@@ -53,6 +55,7 @@ function aboutUs() {
 
         </div>
 
+        {/* Why Choose Us */}
         <div className="text-center mb-14">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
             Why Choose Vaangikkoo?
@@ -107,7 +110,8 @@ function aboutUs() {
 
         </div>
 
-        <div className="bg-gray-900 rounded-3xl px-8 py-14 text-center text-white">
+        {/* Explore Products */}
+        <div className="bg-gray-900 rounded-3xl px-8 py-14 text-center text-white mb-20">
           <h2 className="text-3xl font-extrabold mb-4">
             Start Shopping with Vaangikkoo!
           </h2>
@@ -122,9 +126,45 @@ function aboutUs() {
           </a>
         </div>
 
+        {/* Developer Section */}
+        <div className="text-center py-10">
+          <p className="text-purple-600 font-bold uppercase tracking-widest text-sm mb-3">
+            Meet the Developer
+          </p>
+
+          <div className="max-w-md mx-auto bg-white rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-10">
+
+            <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-purple-100 flex items-center justify-center">
+              <span className="text-3xl font-extrabold text-purple-700">
+                SM
+              </span>
+            </div>
+
+            <h2 className="text-2xl font-extrabold text-gray-900">
+              Sreeraj MT
+            </h2>
+
+            <p className="text-purple-600 font-semibold mt-2">
+              Developer
+            </p>
+
+            <p className="text-gray-500 text-sm leading-7 mt-4">
+              Designed and developed Vaangikkoo with a focus on creating
+              a simple, smooth, and user-friendly online shopping experience.
+            </p>
+
+            <div className="w-16 h-1 bg-purple-600 rounded-full mx-auto mt-6"></div>
+
+          </div>
+
+          <p className="text-gray-400 text-sm mt-8">
+            © 2026 Vaangikkoo. All rights reserved.
+          </p>
+        </div>
+
       </div>
     </div>
   )
 }
 
-export default aboutUs
+export default AboutUs
